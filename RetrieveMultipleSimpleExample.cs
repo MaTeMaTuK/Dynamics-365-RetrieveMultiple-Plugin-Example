@@ -44,7 +44,7 @@ namespace RetrieveMultipleDemo
         }
 
         /// <summary>
-        /// Method sets filter for new Legcay Interface
+        /// Method sets filter for Legcay Interface
         /// </summary>
         /// <param name="executionContext"></param>
         void SetFilterForQueryExpression(IPluginExecutionContext executionContext)
@@ -64,7 +64,7 @@ namespace RetrieveMultipleDemo
 
             var fetchXmlDoc = XDocument.Parse(fetchExpression.Query);
 
-            //In Unified Interface Fetch Expression may contains filter with isquickfindfields attribute.
+            //In Unified Interface Fetch Expression may contain filter with isquickfindfields attribute.
             //This attribute comes from customer search(lookup or quick find).
             //In this example We use only view filter, if it exists
             var originalFilter = fetchXmlDoc
