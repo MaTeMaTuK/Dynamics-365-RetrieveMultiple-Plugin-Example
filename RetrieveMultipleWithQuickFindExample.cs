@@ -32,7 +32,7 @@ namespace RetrieveMultipleDemo
             }
         }
 
-        private void SetFilterForFetchExpression()
+        void SetFilterForFetchExpression()
         {
             var fetchExpression = executionContext.InputParameters["Query"] as FetchExpression;
             tracingService.Trace("Original query: {0}", fetchExpression.Query);
@@ -64,7 +64,7 @@ namespace RetrieveMultipleDemo
             fetchExpression.Query = newQuery;
         }
 
-        protected string GetQuickFindValue(XDocument xDocument)
+        string GetQuickFindValue(XDocument xDocument)
         {
             var filters = xDocument.Descendants("filter");
             var quickFindFilter = filters.Where(f => f.Attribute("isquickfindfields") != null).FirstOrDefault();
