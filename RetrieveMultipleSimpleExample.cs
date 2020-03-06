@@ -10,7 +10,7 @@ using System.Xml.Linq;
 namespace RetrieveMultipleDemo
 {
     /// <summary>
-    /// This is a simple example of Plugin on RetrieveMultiple message. Plugin works with classic & new Dynamics interfaces
+    /// This is a simple example of Plugin on RetrieveMultiple message. Plugin works with classic & unified interfaces
     /// </summary>
     /// <remarks>
     /// Register this plug-in on the RetrieveMultiple message, on pre validation and account entity.
@@ -34,12 +34,12 @@ namespace RetrieveMultipleDemo
             if (executionContext.InputParameters["Query"] is QueryExpression)
             {
                 tracingService.Trace("Context query is an Query Expression");
-                SetFilterForQueryExpression(executionContext);
+                SetFilterForQueryExpression();
             }
             else if (executionContext.InputParameters["Query"] is FetchExpression)
             {
                 tracingService.Trace("Context query is a Fetch Expression");
-                SetFilterForFetchExpression(executionContext);
+                SetFilterForFetchExpression();
             }
         }
 
@@ -47,7 +47,7 @@ namespace RetrieveMultipleDemo
         /// Method sets filter for Legcay Interface
         /// </summary>
         /// <param name="executionContext"></param>
-        void SetFilterForQueryExpression(IPluginExecutionContext executionContext)
+        void SetFilterForQueryExpression()
         {
             var queryExpression = (QueryExpression)executionContext.InputParameters["Query"];
             //All records must contain "Test" word in name field
@@ -55,10 +55,10 @@ namespace RetrieveMultipleDemo
         }
 
         /// <summary>
-        /// Method sets filter for new Unified Interface
+        /// Method sets filter for Unified Interface
         /// </summary>
         /// <param name="executionContext"></param>
-        void SetFilterForFetchExpression(IPluginExecutionContext executionContext)
+        void SetFilterForFetchExpression()
         {
             var fetchExpression = (FetchExpression)executionContext.InputParameters["Query"];
 
