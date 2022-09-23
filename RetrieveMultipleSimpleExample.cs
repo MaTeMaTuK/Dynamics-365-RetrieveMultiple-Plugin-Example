@@ -66,6 +66,7 @@ namespace RetrieveMultipleDemo
 
             //In Unified Interface Fetch Expression may contain filter with isquickfindfields attribute.
             //This attribute comes from customer search(lookup or quick find).
+            //Details: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/quick-find-limit
             //In this example We use only view filter, if it exists
             var originalFilter = fetchXmlDoc
                 .Descendants("filter")
